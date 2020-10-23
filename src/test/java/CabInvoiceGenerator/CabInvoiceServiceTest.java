@@ -42,6 +42,18 @@ public class CabInvoiceServiceTest {
 		InvoiceSummary expectedSummary = new InvoiceSummary(2, 57.0);
 		Assert.assertEquals(expectedSummary, summary);
 	}
+
+	@Test
+	public void givenUserIdReturnShouldReturnInvoiceSummary() {
+		String userId = "Person1";
+		InvoiceService service = new InvoiceService();
+		ArrayList<Ride> rides = new ArrayList<Ride>();
+		Ride r1 = new Ride(5.0, 2.0);
+		Ride r2 = new Ride(0.1, 1.0);
+		rides.add(r1);
+		rides.add(r2);
+		service.addRide(userId, rides);
+		ArrayList<Ride> result = service.getRides(userId);
+		Assert.assertEquals(rides, result);
+	}
 }
-
-

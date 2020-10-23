@@ -7,6 +7,7 @@ import java.util.Scanner;
 //UC1 - calculate fare
 //UC2 - refactored to take multiple rides 
 //UC3 - Invoice summary added 
+//UC4 - get the userId and the invoice service gets the list of rides 
 public class CabInvoiceService {
 
 	public static final double MIN_COST_PER_KM = 10;
@@ -32,4 +33,3 @@ public class CabInvoiceService {
 	}
 
 }
-
