@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 //UC1 - calculate fare
 //UC2 - refactored to take multiple rides 
+//UC3 - Invoice summary added 
 public class CabInvoiceService {
 
 	public static final double MIN_COST_PER_KM = 10;
@@ -22,11 +23,13 @@ public class CabInvoiceService {
 		return fare;
 	}
 
-	public double calculateFare(ArrayList<Ride> rides) {
+	public InvoiceSummary calculateFare(ArrayList<Ride> rides) {
+		double totalFare = 0;
 		for (Ride ride : rides) {
-			totalFare += calculateFare(ride.distance, ride.time);
+			totalFare += (this.calculateFare(ride.distance, ride.time));
 		}
-		return totalFare;
+		return new InvoiceSummary(rides.size(), totalFare);
 	}
 
 }
+
